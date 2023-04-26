@@ -5,16 +5,22 @@ const GlobalContext = createContext();
 const AppContext = ({ children }) => {
   const [query, setQuery] = useState("a");
   const [meals, setMeals] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const fetchData = async (url) => {
-    const res = await fetch(url);
-    const data = await res.json();
-    setMeals(data.meals);
-    console.log(meals);
-  };
-
-  const handleChange = (e) => {
-    setQuery(e.target.value);
+    setLoading(true);
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      if (data.meals === null) {
+        setMeals([]);
+      } else {
+        setMeals(data.meals);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -22,7 +28,7 @@ const AppContext = ({ children }) => {
   }, [query]);
 
   return (
-    <GlobalContext.Provider value={{ query, handleChange, meals }}>
+    <GlobalContext.Provider value={{ setQuery, meals, loading, setLoading }}>
       {children}
     </GlobalContext.Provider>
   );
