@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Loading from "../components/Loading";
+import { useGlobalContext } from "../context";
 const SingleCocktail = () => {
   const { id } = useParams();
-  const [loading, setLoading] = useState(false);
+  const { loading, setLoading } = useGlobalContext();
   const [meal, setMeal] = useState(null);
 
   const fetchMeal = async (url) => {
@@ -60,16 +61,16 @@ const SingleCocktail = () => {
   }
 
   if (!meal) {
-    return <h2 className="error-search">No Meal To Display</h2>;
+    return (
+      <h2 className="error-search singleMeal-error">No Meal To Display</h2>
+    );
   }
 
   const { name, image, category, info, instructions, ingredients } = meal;
 
   return (
-    <section className="meal-section">
-      <Link to="/">
-        <button>BACK HOME</button>
-      </Link>
+    <section className="meal-section section">
+      <Link to="/">BACK HOME</Link>
       <h2>{name}</h2>
       <div className="meal-container">
         <img src={image} alt={name} />
@@ -84,7 +85,7 @@ const SingleCocktail = () => {
             <span className="meal-data">Info :</span> {info}
           </p>
           <p>
-            <span className="meal-data">Instructions: </span> {instructions}
+            <span className="meal-data">Instructions : </span> {instructions}
           </p>
           <p>
             <span className="meal-data">Ingredients :</span>{" "}

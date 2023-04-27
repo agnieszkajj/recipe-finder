@@ -10,14 +10,14 @@ const SearchForm = () => {
   }, []);
 
   return (
-    <section className="section search">
+    <section className="section">
       <form
         className="search-form"
         onSubmit={(e) => {
           e.preventDefault();
         }}
       >
-        <h2>Search Your Favorite Meal</h2>
+        <h2>Find Your Favorite Meal</h2>
         <input
           type="text"
           ref={searchValue}

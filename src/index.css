@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap");
 
 * {
   margin: 0;
@@ -7,13 +7,15 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: Roboto, sans-serif;
   line-height: 1.4;
   font-size: 1rem;
-  font-weight: 300;
   height: 100%;
   background: #f4f4f9;
+}
+
+.section {
+  padding: 5rem 0;
 }
 
 /* Navbar */
@@ -21,7 +23,6 @@ body {
 .navbar {
   display: flex;
   justify-content: center;
-  margin: 0 auto;
   height: 5rem;
   align-items: center;
   background: #979dac;
@@ -37,10 +38,8 @@ body {
 
 .logo {
   text-decoration: none;
-  vertical-align: middle;
   font-size: 1.2rem;
   color: #33415c;
-  font-family: Roboto Mono;
 }
 
 .logo span {
@@ -53,15 +52,15 @@ body {
   margin: 0 1rem;
   font-size: 1.2rem;
   letter-spacing: 2px;
-  vertical-align: middle;
-  font-weight: 400;
+  font-weight: 300;
   color: #33415c;
 }
 
-/* form  */
-.section {
-  padding: 5rem 0;
+.active {
+  color: #e9ecef;
 }
+
+/* form  */
 
 .search-form {
   width: 75%;
@@ -82,7 +81,7 @@ body {
   border-radius: 0.25rem;
   font-size: 1.2rem;
   font-family: inherit;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .search-form input:focus {
@@ -90,7 +89,7 @@ body {
 }
 
 .search-form h2 {
-  font-weight: 100;
+  font-weight: 300;
 }
 
 /* About */
@@ -105,23 +104,28 @@ body {
   text-align: center;
   margin-bottom: 1rem;
   font-size: 2rem;
+  letter-spacing: 1px;
 }
 
 /* meals */
 
+.section-meals {
+  padding-bottom: 5rem;
+}
+
 .section-meals h2 {
   text-align: center;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
 }
 
 .meals-center {
   display: grid;
-  margin-top: 4rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   width: 85%;
   row-gap: 3rem;
-  column-gap: 1.5rem;
   align-items: stretch;
 }
 
@@ -139,39 +143,28 @@ body {
   object-fit: cover;
 }
 
-@media (min-width: 830px) {
-  .meals-center {
-    grid-template-columns: auto auto;
-  }
-}
-@media (min-width: 1200px) {
-  .meals-center {
-    grid-template-columns: auto auto auto;
-  }
-}
-
-/*  meal */
-
 .info {
-  padding: 2rem;
-  text-align: left;
+  padding: 1.5rem;
 }
 
 .info h2 {
   text-align: left;
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
 .info h4 {
   font-size: 1.5rem;
   color: rgba(0, 0, 0, 0.7);
   margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 .info p {
   font-size: 1rem;
   color: rgba(0, 0, 0, 0.4);
   margin-bottom: 1.2rem;
+  font-weight: 300;
 }
 
 .details-button {
@@ -182,8 +175,20 @@ body {
   font-size: 1rem;
   border-radius: 0.5rem;
   letter-spacing: 1px;
-  margin-top: 2rem;
   color: white;
+  font-weight: 300;
+}
+
+@media (min-width: 50rem) {
+  .meals-center {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1.5rem;
+  }
+}
+@media (min-width: 75rem) {
+  .meals-center {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* error */
@@ -191,6 +196,7 @@ body {
 .error-search {
   text-align: center;
   letter-spacing: 2px;
+  font-weight: 500;
 }
 
 .error-page {
@@ -205,43 +211,40 @@ body {
   letter-spacing: 3px;
 }
 
-.error-page button {
+.error-page a,
+.meal-section a {
   background-color: #33415c;
-  padding: 0.7rem;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  font-weight: 300;
   border-radius: 0.5rem;
   color: white;
   cursor: pointer;
   letter-spacing: 1px;
+}
+
+.singleMeal-error {
+  margin-top: 5rem;
 }
 
 /* Single Meal */
 
 .meal-section {
   text-align: center;
-  padding: 5rem 0;
-}
-
-.meal-section button {
-  background-color: #33415c;
-  padding: 0.7rem;
-  border-radius: 0.5rem;
-  color: white;
-  cursor: pointer;
-  letter-spacing: 1px;
 }
 
 .meal-section h2 {
   font-size: 2rem;
   text-transform: capitalize;
-  margin-bottom: 3.5rem;
-  margin-top: 1rem;
+  margin: 3rem 0;
   letter-spacing: 0.3rem;
+  font-weight: 500;
 }
 
 .meal-container {
   width: 85%;
   margin: 0 auto;
-  max-width: 1170px;
+  max-width: 700px;
   text-align: left;
 }
 
@@ -252,11 +255,10 @@ body {
 
 .meal-info {
   padding-top: 2rem;
+  font-weight: 300;
 }
 
 .meal-info p {
-  font-weight: 500;
-  text-transform: capitalize;
   line-height: 1.8;
   letter-spacing: 0.6px;
   margin-bottom: 1.25rem;
