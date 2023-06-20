@@ -8,7 +8,7 @@ Recipe Finder is an app where you can find your favorite meals and check how to 
 
 ## Demo
 
-[Recipe finder](https://recipe-finderrr.netlify.app/)
+[Recipe finder](https://react-app-recipe-finder.netlify.app)
 ## Tech Stack
 
  React\
